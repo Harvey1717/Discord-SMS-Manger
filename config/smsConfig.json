@@ -1,0 +1,10 @@
+{
+  "accountSID": "ACd30a55d3b34a4ce469e8e8d933e539ea",
+  "authToken": "b4a20f521170c471b0b74e98eb863de1",
+  "serviceSID": "MG1f18526d1e377a5d4315ceb54c458939",
+  "allowedMobileCodes": [
+    { "name": "US", "code": "+1" },
+    { "name": "GB", "code": "+44" },
+    { "name": "IT", "code": "+39" }
+  ]
+}
