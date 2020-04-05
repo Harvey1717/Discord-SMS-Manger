@@ -1,5 +1,5 @@
-const { prefix, groupName, botName, logo, colour } = require('../config/discordConfig.json');
-const { allowedMobileCodes } = require('../config/smsConfig.json');
+const { prefix, groupName, botName, logo, colour } = require('../../config/discordConfig.json');
+const { allowedMobileCodes } = require('../../config/smsConfig.json');
 const { RichEmbed } = require('discord.js');
 
 module.exports = {
