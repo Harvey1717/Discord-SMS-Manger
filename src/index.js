@@ -4,7 +4,7 @@ const log = require('@harvey1717/logger')();
 
 const { dbURL } = require('../config/dbConfig');
 const { token } = require('../config/discordConfig');
-const handleBotEvents = require('./handleBotEvents');
+const handleBotEvents = require('./handlers/botEvents');
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();

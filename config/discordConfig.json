@@ -1,4 +1,5 @@
 {
+  "extraModules": ["sms"],
   "token": "NTU0NzM3NjAxMzE2Mzg4ODc0.Xh-LwQ.rf_xVfO4JWe-Fh6--p6URqM8-0A",
   "prefix": "+",
   "botName": "SMS",

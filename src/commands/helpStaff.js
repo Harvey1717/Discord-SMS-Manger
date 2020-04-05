@@ -1,5 +1,7 @@
-const { prefix, groupName, botName, logo, colour } = require('../config/discordConfig.json');
 const { RichEmbed } = require('discord.js');
+const { prefix, groupName, botName, logo, colour } = require.main.require(
+  '../config/discordConfig.json'
+);
 
 module.exports = {
   name: 'helpStaff',

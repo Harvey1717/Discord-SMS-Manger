@@ -1,4 +1,4 @@
-const { botName } = require('../config/discordConfig.json');
+const { botName } = require.main.require('../config/discordConfig.json');
 
 module.exports = {
   name: 'ping',

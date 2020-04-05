@@ -1,11 +1,12 @@
 const twilio = require('twilio');
-const to = require('await-to-js').default;
 const { RichEmbed } = require('discord.js');
 const log = require('@harvey1717/logger')();
-const handleError = require('../scripts/handleError.js');
+const handleError = require.main.require('./handlers/error.js');
 
-const { accountSID, authToken, allowedMobileCodes } = require('../config/smsConfig.json');
-const { groupName, botName, logo } = require('../config/discordConfig.json');
+const { accountSID, authToken, allowedMobileCodes } = require.main.require(
+  '../config/smsConfig.json'
+);
+const { groupName, botName, logo } = require.main.require('../config/discordConfig.json');
 const client = new twilio(accountSID, authToken);
 
 module.exports = {
@@ -15,11 +16,12 @@ module.exports = {
   exampleArgs: ['+447825637466'],
   aliases: ['signup'],
   guildOnly: true,
+  customModule: 'sms',
   async execute(message, args, logChannel, db) {
     const phoneNumber = args[0];
 
     // * Check if number is supported by bot
-    if (allowedMobileCodes.some(item => phoneNumber.startsWith(item.code)) === false)
+    if (allowedMobileCodes.some((item) => phoneNumber.startsWith(item.code)) === false)
       return message.channel.send('Your phone number is currently not supported.');
 
     // * Check with Twilio if number is valid
@@ -33,9 +35,9 @@ module.exports = {
         {
           originalTag: message.author.tag,
           discordUserID: message.author.id,
-          sms: { mobileNumber: phoneNumber, signupDate: new Date() }
+          sms: { mobileNumber: phoneNumber, signupDate: new Date() },
         },
-        err => {
+        (err) => {
           if (err) return handleError(err, logChannel);
           embed = new RichEmbed()
             .setTitle(`${groupName} ${botName} Bot`)
@@ -52,5 +54,5 @@ module.exports = {
         }
       );
     });
-  }
+  },
 };

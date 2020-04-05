@@ -1,4 +1,6 @@
-module.exports = function(message) {
+const { prefix } = require.main.require('../config/discordConfig');
+
+module.exports = function(bot, message) {
   // * Return if message doesn't start with prefix
   // * or was sent by the bot
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -69,7 +71,7 @@ module.exports = function(message) {
 
   // * Attempt to execute the command
   try {
-    command.execute(message, args, logChannel, db);
+    command.execute(message, args, logChannel);
   } catch (error) {
     console.error(error);
     message.reply('Your command could not be executed.');

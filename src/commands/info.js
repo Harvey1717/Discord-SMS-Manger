@@ -1,6 +1,8 @@
 const { RichEmbed } = require('discord.js');
-const handleError = require('../scripts/handleError.js');
-const { botName, groupName, colour, logo } = require('../config/discordConfig.json');
+const handleError = require.main.require('./handlers/error.js');
+const { botName, groupName, colour, logo } = require.main.require(
+  '../config/discordConfig.json'
+);
 
 module.exports = {
   name: 'info',
